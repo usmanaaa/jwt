@@ -123,7 +123,7 @@ func (m MapClaims) VerifyIssuer(cmp string, req bool) bool {
 // be considered a valid claim.
 func (m MapClaims) Valid() error {
 	vErr := new(ValidationError)
-	now := TimeFunc().Unix()
+	now := TimeFunc().UnixNano()
 
 	if !m.VerifyExpiresAt(now, false) {
 		vErr.Inner = errors.New("Token is expired")

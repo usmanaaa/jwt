@@ -143,7 +143,7 @@ type StandardClaims struct {
 // be considered a valid claim.
 func (c StandardClaims) Valid() error {
 	vErr := new(ValidationError)
-	now := TimeFunc().Unix()
+	now := TimeFunc().UnixNano()
 
 	// The claims below are optional, by default, so if they are set to the
 	// default value in Go, let's not fail the verification for them.
